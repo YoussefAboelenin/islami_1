@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
+import 'app_styles.dart';
 
 class MyThemeData {
   static final ThemeData darkTheme = ThemeData(
@@ -11,9 +12,10 @@ class MyThemeData {
         centerTitle: true,
         iconTheme: IconThemeData(color: AppColors.primarydark),
       ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedItemColor: AppColors.whiteColor,
         unselectedItemColor: AppColors.blackColor,
         showSelectedLabels: true,
-      ));
+        selectedLabelStyle: AppStyles.bold14White),
+  );
 }

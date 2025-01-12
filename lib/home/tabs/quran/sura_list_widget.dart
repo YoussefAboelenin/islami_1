@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islami_1/app_colors.dart';
 import 'package:islami_1/model/sura_model.dart';
+import 'package:islami_1/utils/app_styles.dart';
 
 class SuraListWidget extends StatelessWidget {
   SuraModel suraModel;
@@ -18,7 +18,7 @@ class SuraListWidget extends StatelessWidget {
             Image.asset('assets/images/vector_image.png'),
             Text(
               '${index + 1}',
-              style: TextStyle(color: AppColors.whiteColor),
+              style: AppStyles.bold20White,
             ),
           ],
         ),
@@ -34,17 +34,17 @@ class SuraListWidget extends StatelessWidget {
                 children: [
                   Text(
                     suraModel.suraEnglishName,
-                    style: TextStyle(color: AppColors.whiteColor),
+                    style: AppStyles.bold20White,
                   ),
                   Text(
                     '${suraModel.numOfVerses} Verses',
-                    style: TextStyle(color: AppColors.whiteColor),
+                    style: AppStyles.bold20White,
                   )
                 ],
               ),
               Text(
                 suraModel.suraArabicName,
-                style: TextStyle(color: AppColors.whiteColor),
+                style: AppStyles.bold20White,
               ),
             ],
           ),

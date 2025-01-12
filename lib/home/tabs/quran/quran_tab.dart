@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:islami_1/app_colors.dart';
 import 'package:islami_1/home/tabs/quran/sura_details_screen.dart';
 import 'package:islami_1/home/tabs/quran/sura_list_widget.dart';
 import 'package:islami_1/model/sura_model.dart';
+import 'package:islami_1/utils/app_colors.dart';
+import 'package:islami_1/utils/app_styles.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class QuranTab extends StatefulWidget {
@@ -68,9 +69,7 @@ class _QuranTabState extends State<QuranTab> {
                   color: AppColors.primarydark,
                   AssetImage('assets/images/icon_search.png')),
               hintText: 'Sura Name',
-              hintStyle: TextStyle(
-                color: AppColors.whiteColor,
-              ),
+              hintStyle: AppStyles.bold16White,
             ),
             onChanged: (text) {
               searchText = text;
@@ -92,11 +91,7 @@ class _QuranTabState extends State<QuranTab> {
           builtMostRecently(),
           SizedBox(height: 10,),
           Text(
-            'Sura List',
-            style: TextStyle(
-              color: AppColors.whiteColor,
-            ),
-          ),
+            'Sura List', style: AppStyles.bold16White),
           SizedBox(
             height: 10,
           ),
@@ -148,11 +143,9 @@ class _QuranTabState extends State<QuranTab> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Most Recently ',
-          style: TextStyle(
-            color: AppColors.whiteColor,
-          ),
+          style: AppStyles.bold16White,
         ),
         const SizedBox(
           height: 10,
@@ -168,9 +161,18 @@ class _QuranTabState extends State<QuranTab> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(lastSura['suraEnName'] ?? ''),
-                  Text(lastSura['suraArName'] ?? ''),
-                  Text('${lastSura['numOfVerses'] ?? ''} Verses'),
+                  Text(
+                    lastSura['suraEnName'] ?? '',
+                    style: AppStyles.bold24Black,
+                  ),
+                  Text(
+                    lastSura['suraArName'] ?? '',
+                    style: AppStyles.bold24Black,
+                  ),
+                  Text(
+                    '${lastSura['numOfVerses'] ?? ''} Verses',
+                    style: AppStyles.bold14Black,
+                  ),
                 ],
               ),
               Image.asset('assets/images/most_recently_image.png'),
