@@ -18,7 +18,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as SuraModel;
     if (verses.isEmpty) {
-      loadSuraFile(args.index);
+      loadSuraFile(args.fileName);
     }
     return Scaffold(
       appBar: AppBar(
@@ -79,9 +79,8 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
     );
   }
 
-  void loadSuraFile(int index) async {
-    String suraContent =
-        await rootBundle.loadString('assets/files/${index + 1}.txt');
+  void loadSuraFile(String fileName) async {
+    String suraContent = await rootBundle.loadString('assets/files/$fileName');
     List<String> suraLines = suraContent.split('\n');
     verses = suraLines;
     setState(() {});
